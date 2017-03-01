@@ -10,6 +10,6 @@ object ScalaQuiz3 {
   def nth(index:Int, list: List[Int]):Int = list match {
     case x::Nil if index == 0 => x
     case x::_   if index == 0 => x
-    case x::y                 => nth(index - 1, y)
+    case _::y                 => nth(index - 1, y)
   }
 }
