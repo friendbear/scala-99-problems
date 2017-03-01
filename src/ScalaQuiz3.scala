@@ -4,12 +4,13 @@
 object ScalaQuiz3 {
   def main(args: Array[String]): Unit = {
     val list = List(1, 1, 2, 3, 5, 8)
-    println(nth(3, list))
+    val listB = List("a", "b", "c", "d", "e", "f")
+    println(nth(4, listB))
   }
 
-  def nth(index:Int, list: List[Int]):Int = list match {
-    case x::Nil if index == 0 => x
-    case x::_   if index == 0 => x
-    case _::y                 => nth(index - 1, y)
+  def nth[T](index:Int, list: List[T]):T = list match {
+    case x::_ if index == 0 => x
+    case _::y => nth(index - 1, y)
+    case _ => sys.error("error!")
   }
 }
