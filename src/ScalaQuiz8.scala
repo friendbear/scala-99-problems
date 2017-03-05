@@ -7,6 +7,13 @@ object ScalaQuiz8 {
     println(compress(list))
   }
 
+//  def compress[A](list: List[A]): List[A] = list match {
+//    case x :: y :: z => {
+//      if (x == y) compress(y :: z)
+//      else compress(x :: y :: z)
+//    }
+//  }
+
   def compress[A](list: List[A]): List[A] = list match {
     case x :: y => x :: compress(y.dropWhile(_ == x))
     case Nil => Nil
